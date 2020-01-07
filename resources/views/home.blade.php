@@ -6,7 +6,7 @@
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <title>Compass Responsive Template</title>
+    <title>Temanggung</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="templatemo">
@@ -48,7 +48,7 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="left-header">
                                 <span><i class="fa fa-phone"></i>080 080 0990</span>
-                                <span><i class="fa fa-envelope"></i>info@company.com</span>
+                                <span><i class="fa fa-envelope"></i>temanggung@m_city.com</span>
                             </div> <!-- /.left-header -->
                         </div> <!-- /.col-md-6 -->
                         <div class="col-md-6 col-sm-6">
@@ -69,7 +69,8 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="logo">
-                                <h1><a href="#" title="Dreri">Compass</a></h1>
+                                <img src="{{ asset('images/temanggung/title.png') }}" title="Logo Temanggung" width="110" height="35" >
+                                {{-- <h1><a href="#" title="Dreri">Compass</a></h1> --}}
                             </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
                         <div class="col-md-8 col-sm-8 col-xs-6">
@@ -77,10 +78,10 @@
                                 <ul>
                                     <li><a href="#home">Home</a></li>
                                     <li><a href="#services">Services</a></li>
-                                    <li><a href="#portfolio">Portfolio</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                    <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li>
+                                    <li><a href="#portfolio">Nearby</a></li>
+                                    <li><a href="#about">Weather</a></li>
+                                    {{-- <li><a href="#contact">Contact</a></li>
+                                    <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li> --}}
                                 </ul>
                             </div> <!-- /.menu -->
                         </div> <!-- /.col-md-8 -->
@@ -91,10 +92,8 @@
                             <ul>
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#services">Services</a></li>
-                                <li><a href="#portfolio">Portfolio</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                                <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li>
+                                <li><a href="#portfolio">Nearby</a></li>
+                                <li><a href="#about">Weather</a></li>
                             </ul>
                         </div> <!-- /.menu -->
                     </div> <!-- /.responsive-menu -->
@@ -105,180 +104,192 @@
 
     <div class="flexslider">
         <ul class="slides">
+            @foreach($slider->result as $sld)
             <li>
-                <img src="{{ asset('csscore/images/banner01.jpg') }}" alt="">
+                <img src="http://temanggung.mcity.id/files/content/{{$sld->images}}" alt="" height="400px">
                 <div class="flex-caption">
-                    <h2>Compass Template</h2>
+                    <h2>{{$sld->name}}</h2>
                     <span></span>
-                    <p>Praesent tincidunt neque semper elementum gravida. Donec id euismod magna.<br>Ut erat ligula, malesuada eu quam a, fringilla auctor augue.</p>
-                </div>
+
+            </div> 
             </li>
-            <li>
+            @endforeach
+            {{-- <li>
                 <img src="{{ asset('csscore/images/banner02.jpg') }}" alt="">
                 <div class="flex-caption">
                     <h2>Responsive Mobile</h2>
                     <span></span>
                     <p>Ea, similique, odit id consectetur est beatae quia dicta officiis ipsam itaque in<br>facilis aliquid quas officia voluptatem repellendus repellat!</p>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </div>
 
-    <div id="services" class="section-cotent">
+    <div id="portfolio" class="section-content">
         <div class="container">
             <div class="title-section text-center">
                 <h2>Our Services</h2>
                 <span></span>
             </div> <!-- /.title-section -->
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-item">
-                        <div class="service-header">
-                            <i class="fa fa-umbrella"></i>
-                            <h3>Clean Design</h3>
-                        </div>
-                        <div class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, sapiente, saepe, velit, repellendus doloribus blanditiis repudiandae nobis optio quasi nulla aliquam nisi voluptatibus.
-                        </div>
-                    </div> <!-- /.service-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-item">
-                        <div class="service-header">
-                            <i class="fa fa-desktop"></i>
-                            <h3>Fully Responsive</h3>
-                        </div>
-                        <div class="service-description">
-                            <a rel="nofollow" href="http://www.templatemo.com/tm-454-compass" target="_parent">Compass</a> is free responsive website template from templatemo. You can download and use this template for your websites. Please tell your friends about our website. Thank you for visiting us.
-                        </div>
-                    </div> <!-- /.service-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-item">
-                        <div class="service-header">
-                            <i class="fa fa-cogs"></i>
-                            <h3>Easy Editing</h3>
-                        </div>
-                        <div class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, sapiente, saepe, velit, repellendus doloribus blanditiis repudiandae nobis optio quasi nulla aliquam nisi voluptatibus.
-                        </div>
-                    </div> <!-- /.service-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-item">
-                        <div class="service-header">
-                            <i class="fa fa-heart"></i>
-                            <h3>Fast Support</h3>
-                        </div>
-                        <div class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, sapiente, saepe, velit, repellendus doloribus blanditiis repudiandae nobis optio quasi nulla aliquam nisi voluptatibus.
-                        </div>
-                    </div> <!-- /.service-item -->
-                </div> <!-- /.col-md-3 -->
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </div> <!-- /#services -->
+                @foreach($menu->result->default as $mn)
+                @if($mn->menu_id != 23 && $mn->menu_id != 3 && $mn->menu_id != 19 )
+        
+        
 
-    <div id="portfolio" class="section-content">
-        <div class="container">
+                <div class="col-md-3 col-sm-6" onclick="data_menu({{ $mn->menu_id }})">
+                    @csrf
+
+                    <div class="portfolio-thumb">
+                        <img src="{{$mn->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mn->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif
+                {{-- agenda --}}
+                @if($mn->menu_id == 19)
+        
+                <div class="col-md-3 col-sm-6" onclick="agenda({{ $mn->menu_id }})">
+                    @csrf
+
+                    <div class="portfolio-thumb">
+                        <img src="{{$mn->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mn->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif{{-- pelayanan publik --}}
+                @if($mn->menu_id == 3)
+
+                <div class="col-md-3 col-sm-6" onclick="pelayanan({{ $mn->menu_id }})">
+                    @csrf
+
+                    <div class="portfolio-thumb">
+                        <img src="{{$mn->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mn->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif
+                {{-- galeri --}}
+                @if($mn->menu_id == 23)
+
+                <div class="col-md-3 col-sm-6" onclick="data_gallery(1)">
+                    @csrf
+
+                    <div class="portfolio-thumb">
+                        <img src="{{$mn->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mn->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif
+                @endforeach
+
+                <div class="col-md-3 col-sm-6 klik-lain">
+                    @csrf
+
+                    <div class="portfolio-thumb">
+                        <img src="{{asset('images/temanggung/lainnya.png')}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>Lainnya</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+
+            </div> <!-- /.row -->
             <div class="title-section text-center">
-                <h2>Our Portfolio</h2>
+                <h2>Layanan Publik</h2>
                 <span></span>
             </div> <!-- /.title-section -->
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item1.jpg') }}" alt="Portfolio Item 1">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item1.jpg') }}">Nulla non enim</a></h4>
-                                <span>Design</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item2.jpg') }}" alt="Portfolio Item 2">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item2.jpg') }}">Duis nec urna</a></h4>
-                                <span>Creative</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item3.jpg') }}" alt="Portfolio Item 3">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item3.jpg') }}">Etiam magna</a></h4>
-                                <span>Design</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item4.jpg') }}" alt="Portfolio Item 4">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item4.jpg') }}">Vivamus dignissim</a></h4>
-                                <span>Creative</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-            </div> <!-- /.row -->
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item5.jpg') }}" alt="Portfolio Item 5">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item5.jpg') }}">Fusce semper</a></h4>
-                                <span>HTML CSS</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item6.jpg') }}" alt="Portfolio Item 6">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item6.jpg') }}">Nunc ultrices</a></h4>
-                                <span>Mobile</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item7.jpg') }}" alt="Portfolio Item 7">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item7.jpg') }}">Fusce vehicula</a></h4>
-                                <span>HTML CSS</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="portfolio-thumb">
-                        <img src="{{ asset('csscore/images/portfolio/item8.jpg') }}" alt="Portfolio Item 8">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4><a data-rel="lightbox" href="{{ asset('csscore/images/portfolio/item8.jpg') }}">Vivamus elementum</a></h4>
-                                <span>Mobile</span>
-                            </div>
-                        </div> <!-- /.overlay -->
-                    </div> <!-- /.portfolio-thumb -->
-                </div> <!-- /.col-md-3 -->
-            </div> <!-- /.row -->
+<div class="row">
+        {{-- harga pokok --}}
+        @foreach($menu->result->more as $mm)
+        @if($mm->menu_id == 1 )
+        <div class="col-md-3 col-sm-6" onclick="harga_pokok()">
+            @csrf
+
+            <div class="portfolio-thumb">
+                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                <div class="overlay">
+                    <div class="inner">
+                        <h4>{{$mm->menu_name}}</h4>
+                        {{-- <span>Design</span> --}}
+                    </div>
+                </div> <!-- /.overlay -->
+            </div> <!-- /.portfolio-thumb -->
+        </div> <!-- /.col-md-3 -->
+        @endif
+        @endforeach
+        {{-- Pengaduan --}}
+        @foreach($menu->result->more as $mm)
+        @if($mm->menu_id == 2 )
+
+        <a target="_blank" href="https://sms.temanggungkab.go.id/layanan.html">
+
+        <div class="col-md-3 col-sm-6">
+            @csrf
+
+            <div class="portfolio-thumb">
+                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                <div class="overlay">
+                    <div class="inner">
+                        <h4>{{$mm->menu_name}}</h4>
+                        {{-- <span>Design</span> --}}
+                    </div>
+                </div> <!-- /.overlay -->
+            </div> <!-- /.portfolio-thumb -->
+        </div> <!-- /.col-md-3 -->
+    </a>
+
+        @endif
+        @endforeach
+        {{-- Layanan Publik semua --}}
+        @foreach($menu->result->more as $mm)
+
+        @if($mm->menu_id != 1 && $mm->menu_id != 2 )
+
+        <div class="col-md-3 col-sm-6" onclick="data_menu({{ $mm->menu_id }})">
+            @csrf
+
+            <div class="portfolio-thumb">
+                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                <div class="overlay">
+                    <div class="inner">
+                        <h4>{{$mm->menu_name}}</h4>
+                        {{-- <span>Design</span> --}}
+                    </div>
+                </div> <!-- /.overlay -->
+            </div> <!-- /.portfolio-thumb -->
+        </div> <!-- /.col-md-3 -->
+        @endif
+
+        @endforeach
+    </div>
         </div> <!-- /.container -->
     </div> <!-- /#portfolio -->
+
+
 
     <div id="about" class="section-cotent">
         <div class="container">
