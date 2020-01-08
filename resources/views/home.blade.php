@@ -4,7 +4,10 @@
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> 
 <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
     <title>Temanggung</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +32,7 @@
     <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
     <!-- Favicons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
-    
+
     <!-- JavaScripts -->
     <script src="{{ asset('csscore/js/jquery-1.10.2.min.js') }}"></script>
     <script src="{{ asset('csscore/js/modernizr.js') }}"></script>
@@ -46,6 +49,7 @@
             font: 14px/1.85em "Open Sans", Arial, Helvetice Neue, sans-serif;
             margin: 5px;
         }
+
         /* button menu aanim */
         .example_e:hover {
             color: #fd704e !important;
@@ -72,27 +76,32 @@
             display: inline-block;
             transition: all 0.5s ease 0s;
         }
+
         /* tengah */
         .center {
             margin: auto;
 
         }
-     /* display none */
+
+        /* display none */
         .d-none {
             display: none;
         }
-    /* box */
-    .box{
-        background: #f0ece6;
-        border-radius: 5px;
-        padding: 25px;
-    } 
-    /* bisa klik */
-    .bisa-klik:hover {
+
+        /* box */
+        .box {
+            background: #f0ece6;
+            border-radius: 5px;
+            padding: 25px;
+        }
+
+        /* bisa klik */
+        .bisa-klik:hover {
             opacity: 0.5;
             cursor: pointer;
         }
-    /* loading */
+
+        /* loading */
         .loader {
             border: 10px solid #f3f3f3;
             border-radius: 50%;
@@ -145,8 +154,9 @@
         }
     </style>
 </head>
+
 <body>
-    
+
     <div id="home">
         <div class="site-header">
             <div class="top-header">
@@ -176,7 +186,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="logo">
-                                <img src="{{ asset('images/temanggung/title.png') }}" title="Logo Temanggung" width="110" height="35" >
+                                <img src="{{ asset('images/temanggung/title.png') }}" height="35">
                                 {{-- <h1><a href="#" title="Dreri">Compass</a></h1> --}}
                             </div> <!-- /.logo -->
                         </div> <!-- /.col-md-4 -->
@@ -212,22 +222,22 @@
     <div class="flexslider">
         <ul class="slides">
             @foreach($slider->result as $sld)
-            <li>
-                <img src="http://temanggung.mcity.id/files/content/{{$sld->images}}" alt="" height="400px">
+            <li style="height:500px;">
+                <img src="http://temanggung.mcity.id/files/content/{{$sld->images}}" alt="" style="position:relative; top:50%; transform:translateY(-50%)">
                 <div class="flex-caption">
-                    <h2>{{$sld->name}}</h2>
+                    <h2 style="text-shadow: 3px 3px #a9a9a9;">{{$sld->name}}</h2>
                     <span></span>
 
-            </div> 
+                </div>
             </li>
             @endforeach
             {{-- <li>
                 <img src="{{ asset('csscore/images/banner02.jpg') }}" alt="">
-                <div class="flex-caption">
-                    <h2>Responsive Mobile</h2>
-                    <span></span>
-                    <p>Ea, similique, odit id consectetur est beatae quia dicta officiis ipsam itaque in<br>facilis aliquid quas officia voluptatem repellendus repellat!</p>
-                </div>
+            <div class="flex-caption">
+                <h2>Responsive Mobile</h2>
+                <span></span>
+                <p>Ea, similique, odit id consectetur est beatae quia dicta officiis ipsam itaque in<br>facilis aliquid quas officia voluptatem repellendus repellat!</p>
+            </div>
             </li> --}}
         </ul>
     </div>
@@ -241,8 +251,8 @@
             <div class="row">
                 @foreach($menu->result->default as $mn)
                 @if($mn->menu_id != 23 && $mn->menu_id != 3 && $mn->menu_id != 19 )
-        
-        
+
+
 
                 <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_menu({{ $mn->menu_id }})">
                     @csrf
@@ -260,7 +270,7 @@
                 @endif
                 {{-- agenda --}}
                 @if($mn->menu_id == 19)
-        
+
                 <div class="col-md-3 col-sm-6 col-xs-6 " onclick="agenda({{ $mn->menu_id }})">
                     @csrf
 
@@ -333,86 +343,86 @@
                 @foreach($det->result as $nn)
                 <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
                     @csrf
-    
+
                     <div class="">
                         {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
                         <div class="templatemo_service_title">{{$nn->name}}</div>
                     </div>
                 </div>
                 @endforeach
-    
+
             </div>
             <div class="title-section text-center">
                 <h2>Layanan Publik</h2>
                 <span></span>
             </div> <!-- /.title-section -->
-<div class="row">
-        {{-- harga pokok --}}
-        @foreach($menu->result->more as $mm)
-        @if($mm->menu_id == 1 )
-        <div class="col-md-3 col-sm-6 col-xs-6" onclick="harga_pokok()">
-            @csrf
+            <div class="row">
+                {{-- harga pokok --}}
+                @foreach($menu->result->more as $mm)
+                @if($mm->menu_id == 1 )
+                <div class="col-md-3 col-sm-6 col-xs-6" onclick="harga_pokok()">
+                    @csrf
 
-            <div class="portfolio-thumb">
-                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
-                <div class="overlay">
-                    <div class="inner">
-                        <h4>{{$mm->menu_name}}</h4>
-                        {{-- <span>Design</span> --}}
-                    </div>
-                </div> <!-- /.overlay -->
-            </div> <!-- /.portfolio-thumb -->
-        </div> <!-- /.col-md-3 -->
-        @endif
-        @endforeach
-        {{-- Pengaduan --}}
-        @foreach($menu->result->more as $mm)
-        @if($mm->menu_id == 2 )
+                    <div class="portfolio-thumb">
+                        <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mm->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif
+                @endforeach
+                {{-- Pengaduan --}}
+                @foreach($menu->result->more as $mm)
+                @if($mm->menu_id == 2 )
 
-        <a target="_blank" href="https://sms.temanggungkab.go.id/layanan.html">
+                <a target="_blank" href="https://sms.temanggungkab.go.id/layanan.html">
 
-        <div class="col-md-3 col-sm-6 col-xs-6">
-            @csrf
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        @csrf
 
-            <div class="portfolio-thumb">
-                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
-                <div class="overlay">
-                    <div class="inner">
-                        <h4>{{$mm->menu_name}}</h4>
-                        {{-- <span>Design</span> --}}
-                    </div>
-                </div> <!-- /.overlay -->
-            </div> <!-- /.portfolio-thumb -->
-        </div> <!-- /.col-md-3 -->
-    </a>
+                        <div class="portfolio-thumb">
+                            <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                            <div class="overlay">
+                                <div class="inner">
+                                    <h4>{{$mm->menu_name}}</h4>
+                                    {{-- <span>Design</span> --}}
+                                </div>
+                            </div> <!-- /.overlay -->
+                        </div> <!-- /.portfolio-thumb -->
+                    </div> <!-- /.col-md-3 -->
+                </a>
 
-        @endif
-        @endforeach
-        {{-- Layanan Publik semua --}}
-        @foreach($menu->result->more as $mm)
+                @endif
+                @endforeach
+                {{-- Layanan Publik semua --}}
+                @foreach($menu->result->more as $mm)
 
-        @if($mm->menu_id != 1 && $mm->menu_id != 2 )
+                @if($mm->menu_id != 1 && $mm->menu_id != 2 )
 
-        <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_menu({{ $mm->menu_id }})">
-            @csrf
+                <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_menu({{ $mm->menu_id }})">
+                    @csrf
 
-            <div class="portfolio-thumb">
-                <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
-                <div class="overlay">
-                    <div class="inner">
-                        <h4>{{$mm->menu_name}}</h4>
-                        {{-- <span>Design</span> --}}
-                    </div>
-                </div> <!-- /.overlay -->
-            </div> <!-- /.portfolio-thumb -->
-        </div> <!-- /.col-md-3 -->
-        @endif
+                    <div class="portfolio-thumb">
+                        <img src="{{$mm->menu_icon_url}}" alt="Portfolio Item 1" height="50" width="50">
+                        <div class="overlay">
+                            <div class="inner">
+                                <h4>{{$mm->menu_name}}</h4>
+                                {{-- <span>Design</span> --}}
+                            </div>
+                        </div> <!-- /.overlay -->
+                    </div> <!-- /.portfolio-thumb -->
+                </div> <!-- /.col-md-3 -->
+                @endif
 
-        @endforeach
-    </div>
-    <div class="detail_menu">
+                @endforeach
+            </div>
+            <div class="detail_menu">
 
-    </div>
+            </div>
         </div> <!-- /.container -->
     </div> <!-- /#portfolio -->
 
@@ -426,7 +436,7 @@
             </div> <!-- /.title-section -->
             <div class="row">
                 <div class="col-md-6">
-                    <img src="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png" height="300" width="600">
+                    <img src="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png" height="auto" width="100%">
                 </div> <!-- /.col-md-3 -->
                 <div class="col-md-5 our-skills  text-center">
                     <h4 class="widget-title">Status Cuaca Temanggung</h4>
@@ -455,62 +465,62 @@
                         <div class="team-member">
                             <div class="member-img">
                                 <img src="{{ asset('csscore/images/team/member-1.jpg') }}" alt="Tracy">
-                                <div class="overlay">
-                                    <ul class="social">
-                                        <li><a href="#" class="fa fa-facebook"></a></li>
-                                        <li><a href="#" class="fa fa-twitter"></a></li>
-                                        <li><a href="#" class="fa fa-instagram"></a></li>
-                                    </ul>
-                                </div> <!-- /.overlay -->
-                            </div>
-                            <div class="inner-content">
-                                <h5>Tracy One</h5>
-                                <span>Product Developer</span>
-                                <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
-                            </div>
-                        </div> <!-- /.team-member -->
-                    </div> <!-- /.col-md-4 -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('csscore/images/team/member-2.jpg') }}" alt="Mary">
-                                <div class="overlay">
-                                    <ul class="social">
-                                        <li><a href="#" class="fa fa-facebook"></a></li>
-                                        <li><a href="#" class="fa fa-twitter"></a></li>
-                                        <li><a href="#" class="fa fa-instagram"></a></li>
-                                    </ul>
-                                </div> <!-- /.overlay -->
-                            </div>
-                            <div class="inner-content">
-                                <h5>Mary Two</h5>
-                                <span>Product Designer</span>
-                                <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
-                            </div>
-                        </div> <!-- /.team-member -->
-                    </div> <!-- /.col-md-4 -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('csscore/images/team/member-3.jpg') }}" alt="Julia">
-                                <div class="overlay">
-                                    <ul class="social">
-                                        <li><a href="#" class="fa fa-facebook"></a></li>
-                                        <li><a href="#" class="fa fa-twitter"></a></li>
-                                        <li><a href="#" class="fa fa-instagram"></a></li>
-                                    </ul>
-                                </div> <!-- /.overlay -->
-                            </div>
-                            <div class="inner-content">
-                                <h5>Julia Three</h5>
-                                <span>Product Manager</span>
-                                <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
-                            </div>
-                        </div> <!-- /.team-member -->
-                    </div> <!-- /.col-md-4 -->
-                </div> <!-- /.our-team -->
-            </div> <!-- /.row --> --}}
-        </div> <!-- /.container -->
+            <div class="overlay">
+                <ul class="social">
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div> <!-- /.overlay -->
+        </div>
+        <div class="inner-content">
+            <h5>Tracy One</h5>
+            <span>Product Developer</span>
+            <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
+        </div>
+    </div> <!-- /.team-member -->
+    </div> <!-- /.col-md-4 -->
+    <div class="col-md-4 col-sm-6">
+        <div class="team-member">
+            <div class="member-img">
+                <img src="{{ asset('csscore/images/team/member-2.jpg') }}" alt="Mary">
+                <div class="overlay">
+                    <ul class="social">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div> <!-- /.overlay -->
+            </div>
+            <div class="inner-content">
+                <h5>Mary Two</h5>
+                <span>Product Designer</span>
+                <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
+            </div>
+        </div> <!-- /.team-member -->
+    </div> <!-- /.col-md-4 -->
+    <div class="col-md-4 col-sm-6">
+        <div class="team-member">
+            <div class="member-img">
+                <img src="{{ asset('csscore/images/team/member-3.jpg') }}" alt="Julia">
+                <div class="overlay">
+                    <ul class="social">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div> <!-- /.overlay -->
+            </div>
+            <div class="inner-content">
+                <h5>Julia Three</h5>
+                <span>Product Manager</span>
+                <p>Mauris vel lorem non odio accumsan scelerisque. Nullam id augue vel nibh soll.</p>
+            </div>
+        </div> <!-- /.team-member -->
+    </div> <!-- /.col-md-4 -->
+    </div> <!-- /.our-team -->
+    </div> <!-- /.row --> --}}
+    </div> <!-- /.container -->
     </div> <!-- /#about -->
 
     <div id="contact" class="section-cotent">
@@ -519,19 +529,19 @@
                 <h2>Nearby</h2>
                 <span></span>
             </div> <!-- /.title-section -->
-                <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" >
+            <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain">
 
-                    @foreach($nearby->result as $n)
-                    <div class="col-md-12 col-sm-10 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content({{$n->id}})">
-                        <div class="templatemo_servicebox">
-                            <img src="http://temanggung.mcity.id/files/content/{{$n->images}}" height="150" width="150">
-                            <div class="templatemo_service_title">{{$n->name}}</div>
-                            {{-- <p>' . $i->district . '</p> --}}
-                        </div>
+                @foreach($nearby->result as $n)
+                <div class="col-md-12 col-sm-10 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content({{$n->id}})">
+                    <div class="templatemo_servicebox">
+                        <img src="http://temanggung.mcity.id/files/content/{{$n->images}}" height="auto" width="100%">
+                        <div class="templatemo_service_title">{{$n->name}}</div>
+                        {{-- <p>' . $i->district . '</p> --}}
                     </div>
-                    @endforeach
-        
                 </div>
+                @endforeach
+
+            </div>
         </div> <!-- /.container -->
     </div> <!-- /#contact -->
 
@@ -558,28 +568,27 @@
     <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
     <script src="{{ asset('csscore/js/custom.js') }}"></script>
     <script type="text/javascript">
-
         function initialize() {
-        //   var mapOptions = {
-		// 	  scrollwheel: false,
-        //     zoom: 15,
-        //     center: new google.maps.LatLng(13.758468,100.567481)
-        //   };
+            //   var mapOptions = {
+            // 	  scrollwheel: false,
+            //     zoom: 15,
+            //     center: new google.maps.LatLng(13.758468,100.567481)
+            //   };
 
-        //   var map = new google.maps.Map(document.getElementById('map-canvas'),
-        //       mapOptions);
+            //   var map = new google.maps.Map(document.getElementById('map-canvas'),
+            //       mapOptions);
         }
 
         function loadScript() {
-        //   var script = document.createElement('script');
-        //   script.type = 'text/javascript';
-        //   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-        //       'callback=initialize';
-        //   document.body.appendChild(script);
+            //   var script = document.createElement('script');
+            //   script.type = 'text/javascript';
+            //   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+            //       'callback=initialize';
+            //   document.body.appendChild(script);
         }
 
         window.onload = loadScript;
-//================ owlcarousel ====================
+        //================ owlcarousel ====================
         $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
                 loop: true,
@@ -852,4 +861,5 @@
         });
     </script>
 </body>
+
 </html>
