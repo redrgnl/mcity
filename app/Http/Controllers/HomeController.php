@@ -223,8 +223,9 @@ class HomeController extends Controller
         $string = json_decode($response);
         $output = '
         <div class="row">
-            <h3>Hasil Pencarian</h3>
+            <h2 style="text-align: center;">Hasil Pencarian</h2>
         </div>
+        <br>
             <div class="templatemo_servicewrapper" id="detail_menu">
                 <div class="container">
       
@@ -239,7 +240,7 @@ class HomeController extends Controller
 
                     $output .= '
                     <div class="row">
-                        <div class="col-md-3 paddingbot klik-lain" onclick="data_content(' . $i->id . ')">
+                        <div class="col-md-3 col-sm-3 col-xs-6 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
                                 <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="150" width="150">
                                 <div class="templatemo_service_title">' . $i->name . '</div>
@@ -251,7 +252,7 @@ class HomeController extends Controller
                         </div>';
                 } else {
                     $output .= '
-                        <div class="col-md-3 paddingbot klik-lain" onclick="data_content(' . $i->id . ')">
+                        <div class="col-md-3 col-sm-3 col-xs-6 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
                                 <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="150" width="150">
                                     <div class="templatemo_service_title">' . $i->name . '</div>

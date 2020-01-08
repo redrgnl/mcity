@@ -136,11 +136,17 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   color: #e3722e;
 }
-
+.templatemo_servicebox {
+  background: #f0efee;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 25px;
+  text-align: center;
+}
 .main-header {
   position: fixed;
   width: 100%;
-  z-index: 9999;
+  z-index: 100;
   padding: 40px 0;
   background: white;
   -webkit-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
@@ -361,6 +367,10 @@ h1, h2, h3, h4, h5, h6 {
 /*------------------------------------------------------
 	About Styles 
 --------------------------------------------------------*/
+#about{
+  background: #fcf6f0;
+
+}
 #about .progess-bars li .progress {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;

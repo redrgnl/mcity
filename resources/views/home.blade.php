@@ -25,18 +25,125 @@
     <link rel="stylesheet" href="{{ asset('csscore/css/templatemo-misc.css') }}">
     <link rel="stylesheet" href="{{ asset('csscore/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('csscore/css/templatemo-main.css') }}">
-        
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
     <!-- Favicons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     
     <!-- JavaScripts -->
     <script src="{{ asset('csscore/js/jquery-1.10.2.min.js') }}"></script>
     <script src="{{ asset('csscore/js/modernizr.js') }}"></script>
+    <script src="{{ asset('owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <!--[if lt IE 8]>
 	<div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
         </div>
     <![endif]-->
+    <style>
+        div.title {
+            font: 14px/1.85em "Open Sans", Arial, Helvetice Neue, sans-serif;
+            margin: 5px;
+        }
+        /* button menu aanim */
+        .example_e:hover {
+            color: #fd704e !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px;
+            background: none;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            transition: all 0.5s ease 0s;
+        }
+
+        .example_e {
+            font-size: 12px;
+            margin: 3px;
+            margin-bottom: 20px;
+
+            border: none;
+            background: #d6935b;
+            color: #ffffff !important;
+            font-weight: 100;
+            padding: 12px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.5s ease 0s;
+        }
+        /* tengah */
+        .center {
+            margin: auto;
+
+        }
+     /* display none */
+        .d-none {
+            display: none;
+        }
+    /* box */
+    .box{
+        background: #f0ece6;
+        border-radius: 5px;
+        padding: 25px;
+    } 
+    /* bisa klik */
+    .bisa-klik:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    /* loading */
+        .loader {
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 10px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* iframe responsive */
+        .myIframe {
+            position: relative;
+            padding-bottom: 65.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            border: solid black 1px;
+        }
+
+        .myIframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     
@@ -77,8 +184,8 @@
                             <div class="menu text-right hidden-sm hidden-xs">
                                 <ul>
                                     <li><a href="#home">Home</a></li>
-                                    <li><a href="#services">Services</a></li>
-                                    <li><a href="#portfolio">Nearby</a></li>
+                                    <li><a href="#portfolio">Services</a></li>
+                                    <li><a href="#contact">Nearby</a></li>
                                     <li><a href="#about">Weather</a></li>
                                     {{-- <li><a href="#contact">Contact</a></li>
                                     <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li> --}}
@@ -91,8 +198,8 @@
                         <div class="menu">
                             <ul>
                                 <li><a href="#home">Home</a></li>
-                                <li><a href="#services">Services</a></li>
-                                <li><a href="#portfolio">Nearby</a></li>
+                                <li><a href="#portfolio">Services</a></li>
+                                <li><a href="#contact">Nearby</a></li>
                                 <li><a href="#about">Weather</a></li>
                             </ul>
                         </div> <!-- /.menu -->
@@ -137,7 +244,7 @@
         
         
 
-                <div class="col-md-3 col-sm-6" onclick="data_menu({{ $mn->menu_id }})">
+                <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_menu({{ $mn->menu_id }})">
                     @csrf
 
                     <div class="portfolio-thumb">
@@ -154,7 +261,7 @@
                 {{-- agenda --}}
                 @if($mn->menu_id == 19)
         
-                <div class="col-md-3 col-sm-6" onclick="agenda({{ $mn->menu_id }})">
+                <div class="col-md-3 col-sm-6 col-xs-6 " onclick="agenda({{ $mn->menu_id }})">
                     @csrf
 
                     <div class="portfolio-thumb">
@@ -170,7 +277,7 @@
                 @endif{{-- pelayanan publik --}}
                 @if($mn->menu_id == 3)
 
-                <div class="col-md-3 col-sm-6" onclick="pelayanan({{ $mn->menu_id }})">
+                <div class="col-md-3 col-sm-6 col-xs-6" onclick="pelayanan({{ $mn->menu_id }})">
                     @csrf
 
                     <div class="portfolio-thumb">
@@ -187,7 +294,7 @@
                 {{-- galeri --}}
                 @if($mn->menu_id == 23)
 
-                <div class="col-md-3 col-sm-6" onclick="data_gallery(1)">
+                <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_gallery(1)">
                     @csrf
 
                     <div class="portfolio-thumb">
@@ -203,7 +310,7 @@
                 @endif
                 @endforeach
 
-                <div class="col-md-3 col-sm-6 klik-lain">
+                <div class="col-md-3 col-sm-6 col-xs-6 klik-lain">
                     @csrf
 
                     <div class="portfolio-thumb">
@@ -218,6 +325,23 @@
                 </div> <!-- /.col-md-3 -->
 
             </div> <!-- /.row -->
+            <div class="menu-data"></div>
+            <div id="loader" class="loader center d-none"></div>
+
+            <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" style="display: none;">
+
+                @foreach($det->result as $nn)
+                <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
+                    @csrf
+    
+                    <div class="">
+                        {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
+                        <div class="templatemo_service_title">{{$nn->name}}</div>
+                    </div>
+                </div>
+                @endforeach
+    
+            </div>
             <div class="title-section text-center">
                 <h2>Layanan Publik</h2>
                 <span></span>
@@ -226,7 +350,7 @@
         {{-- harga pokok --}}
         @foreach($menu->result->more as $mm)
         @if($mm->menu_id == 1 )
-        <div class="col-md-3 col-sm-6" onclick="harga_pokok()">
+        <div class="col-md-3 col-sm-6 col-xs-6" onclick="harga_pokok()">
             @csrf
 
             <div class="portfolio-thumb">
@@ -247,7 +371,7 @@
 
         <a target="_blank" href="https://sms.temanggungkab.go.id/layanan.html">
 
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6 col-xs-6">
             @csrf
 
             <div class="portfolio-thumb">
@@ -269,7 +393,7 @@
 
         @if($mm->menu_id != 1 && $mm->menu_id != 2 )
 
-        <div class="col-md-3 col-sm-6" onclick="data_menu({{ $mm->menu_id }})">
+        <div class="col-md-3 col-sm-6 col-xs-6" onclick="data_menu({{ $mm->menu_id }})">
             @csrf
 
             <div class="portfolio-thumb">
@@ -286,6 +410,9 @@
 
         @endforeach
     </div>
+    <div class="detail_menu">
+
+    </div>
         </div> <!-- /.container -->
     </div> <!-- /#portfolio -->
 
@@ -294,41 +421,35 @@
     <div id="about" class="section-cotent">
         <div class="container">
             <div class="title-section text-center">
-                <h2>About Us</h2>
+                <h2>Weather</h2>
                 <span></span>
             </div> <!-- /.title-section -->
             <div class="row">
-                <div class="col-md-8">
-                    <h4 class="widget-title">Company Background</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ex, amet, quisquam magni quasi modi sint accusamus architecto velit veritatis nobis autem repellat dolore quis atque totam laudantium ab sed impedit beatae esse error culpa voluptatem eius et. <br><br>Aut, nulla, debitis voluptates doloribus quisquam maiores repudiandae nam culpa voluptatibus alias earum magnam numquam. Consectetur, ratione, ipsam totam et nesciunt atque temporibus fuga quos rem deserunt tempore dolore eaque dolorum a doloremque optio nihil pariatur aliquid ex id officiis aliquam sed.</p>
+                <div class="col-md-6">
+                    <img src="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png" height="300" width="600">
                 </div> <!-- /.col-md-3 -->
-                <div class="col-md-4 our-skills">
-                    <h4 class="widget-title">Our Skills</h4>
-                    <ul class="progess-bars">
-                        <li>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">Design 90%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">HTML CSS 75%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">WordPress 85%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">Marketing 95%</div>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="col-md-5 our-skills  text-center">
+                    <h4 class="widget-title">Status Cuaca Temanggung</h4>
+
+                    <h5>Prakiraan Cuaca Temanggung - <span style="font-weight: bold"><?php echo date("jS F, Y", $currenttime); ?></span></h5>
+                    <div class="clear"></div>
+                    <div class="templatemo_address_title" style="font-size: 150%; margin-bottom: 10px">
+                        <img src="http://openweathermap.org/img/w/<?php echo $wth->weather[0]->icon; ?>.png" class="weather-icon" style="width: 12%"><?php echo ucwords($wth->weather[0]->description); ?>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="weather-forecast">
+                        <i class="fa fa-fire" style="font-size: 20px; color: orangered"></i>&ensp;
+                        <span class="min-temperature"> <?php echo $wth->main->temp_min; ?>°C - <?php echo $wth->main->temp_max; ?>°C</span>
+                        &ensp;&ensp;
+                        <i class="fa fa-tint" style="font-size: 20px; color: deepskyblue"></i>&ensp;
+                        <span class="min-temperature"> <?php echo $wth->main->humidity; ?>%</span>
+                        &ensp;&ensp;
+                        <i class="fa fa-stack-overflow" style="font-size: 20px"></i>&ensp;
+                        <span class="min-temperature"> <?php echo $wth->wind->speed; ?> km/h</span>
+                    </div>
                 </div> <!-- /.col-md-3 -->
             </div> <!-- /.row -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="our-team">
                     <div class="col-md-4 col-sm-6">
                         <div class="team-member">
@@ -388,53 +509,29 @@
                         </div> <!-- /.team-member -->
                     </div> <!-- /.col-md-4 -->
                 </div> <!-- /.our-team -->
-            </div> <!-- /.row -->
+            </div> <!-- /.row --> --}}
         </div> <!-- /.container -->
     </div> <!-- /#about -->
 
     <div id="contact" class="section-cotent">
         <div class="container">
             <div class="title-section text-center">
-                <h2>Contact Us</h2>
+                <h2>Nearby</h2>
                 <span></span>
             </div> <!-- /.title-section -->
-            <div class="row">
-                <div class="col-md-7 col-sm-6">
-                    <h4 class="widget-title">Send a message to us</h4>
-                    <div class="contact-form">
-                        <p class="full-row">
-                            <label for="name-id">Your Name:</label>
-                            <input type="text" id="name-id" name="name-id">
-                        </p>
-                        <p class="full-row">
-                            <label for="email-id">Email:</label>
-                            <input type="text" id="email-id" name="email-id">
-                        </p>
-                        <p class="full-row">
-                            <label for="subject-id">Subject:</label>
-                            <input type="text" id="subject-id" name="subject-id">
-                        </p>
-                        <p class="full-row">
-                            <label for="message">Message:</label>
-                            <textarea name="message" id="message" rows="6"></textarea>
-                        </p>
-                        <input class="mainBtn" type="submit" name="" value="Send Message">
-                    </div>
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-5 col-sm-6">
-                    <h4 class="widget-title">Our location</h4>
-                    <div class="map-holder">
-                        <div class="google-map-canvas" id="map-canvas" style="height: 250px;">
+                <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" >
+
+                    @foreach($nearby->result as $n)
+                    <div class="col-md-12 col-sm-10 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content({{$n->id}})">
+                        <div class="templatemo_servicebox">
+                            <img src="http://temanggung.mcity.id/files/content/{{$n->images}}" height="150" width="150">
+                            <div class="templatemo_service_title">{{$n->name}}</div>
+                            {{-- <p>' . $i->district . '</p> --}}
                         </div>
-                    </div> <!-- /.map-holder -->
-                    <div class="contact-info">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, modi, non ducimus nesciunt in commodi similique aliquam omnis ea at!</p>
-                        <span><i class="fa fa-home"></i>850 In luctus justo vel nisi, Duis mattis 10440</span>
-                        <span><i class="fa fa-phone"></i>080-080-0990</span>
-                        <span><i class="fa fa-envelope"></i>info@company.com</span>
                     </div>
-                </div> <!-- /.col-md-3 -->
-            </div> <!-- /.row -->
+                    @endforeach
+        
+                </div>
         </div> <!-- /.container -->
     </div> <!-- /#contact -->
 
@@ -442,7 +539,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <p>Copyright &copy; 2084 Company Name</p>
+                    <p>Copyright &copy; 2084 Temanggung Smart City</p>
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="go-top">
@@ -463,26 +560,296 @@
     <script type="text/javascript">
 
         function initialize() {
-          var mapOptions = {
-			  scrollwheel: false,
-            zoom: 15,
-            center: new google.maps.LatLng(13.758468,100.567481)
-          };
+        //   var mapOptions = {
+		// 	  scrollwheel: false,
+        //     zoom: 15,
+        //     center: new google.maps.LatLng(13.758468,100.567481)
+        //   };
 
-          var map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
+        //   var map = new google.maps.Map(document.getElementById('map-canvas'),
+        //       mapOptions);
         }
 
         function loadScript() {
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-              'callback=initialize';
-          document.body.appendChild(script);
+        //   var script = document.createElement('script');
+        //   script.type = 'text/javascript';
+        //   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+        //       'callback=initialize';
+        //   document.body.appendChild(script);
         }
 
         window.onload = loadScript;
+//================ owlcarousel ====================
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 5,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            })
+        });
+    </script>
+    <script>
+        function remove_load() {
+            var load = document.getElementById('loader');
+
+
+            load.classList.add("d-none");
+
+        }
+
+        function data_menu($id) {
+            var load = document.getElementById('loader');
+
+            var id = $id;
+            var _token = $('input[name="_token"]').val();
+            // alert(id);
+
+            $.ajax({
+                url: "{{ route('menu.fetch') }}",
+                method: "POST",
+                data: {
+                    _token: _token,
+                    id: id
+                },
+                success: function(data) {
+                    // console.log(data);
+                    $('.menu-data').html(data);
+
+                }
+            });
+
+            load.classList.remove('d-none');
+            setTimeout(remove_load, 280);
+
+        }
+
+        function data_detail_menu($id) {
+            var load = document.getElementById('loader');
+
+            var id = $id;
+            var _token = $('input[name="_token"]').val();
+            // alert(id);
+
+            $.ajax({
+                url: "{{ route('detailmenu.fetch') }}",
+                method: "POST",
+                data: {
+                    _token: _token,
+                    id: id
+                },
+                success: function(data) {
+                    $('.detail_menu').html(data);
+                    $("#gone").remove();
+                }
+            });
+
+            setTimeout(remove_load, 280);
+        }
+
+        function data_content($id) {
+            var load = document.getElementById('loader');
+
+            var id = $id;
+            var _token = $('input[name="_token"]').val();
+            // console.log(id);
+            // alert(id);
+
+            $.ajax({
+                url: "{{ route('content.fetch') }}",
+                method: "POST",
+                data: {
+                    _token: _token,
+                    id: id
+                },
+                success: function(data) {
+
+                    var json = JSON.parse(data);
+                    Swal.fire({
+                        title: '<span style="font-size:20px">' + json['result'].name + '<span>',
+                        html: '<span style="font-size:17px">' + json['result'].description + '<span>' + '<p> <a href="https://maps.google.com/?q=@' + json['result'].lat + ',' + json['result'].lng + '" target="_blank" >Klik Untuk Buka Maps</a> </p>',
+                        imageUrl: 'http://temanggung.mcity.id/files/content/' + json['result'].images,
+                        imageWidth: 400,
+                        imageHeight: 300,
+                        imageAlt: 'Custom image',
+                        width: '650px',
+                        customClass: {
+                            html: 'swal-text',
+                        }
+                    })
+
+                    $("#gone ").remove();
+                    // console.log(data);
+                }
+            });
+            setTimeout(remove_load, 280);
+        }
+
+        function harga_pokok() {
+            var date_start = '23-12-2019';
+            var date_start_submit = '23-12-2019';
+            var date_end = '23-12-2019';
+            var date_end_submit = '23-12-2019';
+            var in_kabupaten = '23';
+            var in_pasar = '87';
+            var _token = $('input[name="_token"]').val();
+
+            $.ajax({
+                url: "{{ route('harga.fetch') }}",
+                method: "POST",
+                data: {
+                    date_start: date_start,
+                    date_start_submit: date_start_submit,
+                    date_end: date_end,
+                    date_end_submit: date_end_submit,
+                    in_kabupaten: in_kabupaten,
+                    in_pasar: in_pasar,
+                    _token: _token
+                },
+                success: function(data) {
+                    Swal.fire({
+                        title: '<span style="font-size:20px">Harga Pokok<span>',
+                        html: data,
+                        width: '650px',
+                        customClass: {
+                            html: 'swal-text',
+                        }
+                    })
+                }
+            });
+        }
+
+        function agenda() {
+            Swal.fire({
+                // title: 'Agenda Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/agenda">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function tv() {
+            Swal.fire({
+                title: 'Temanggung TV',
+                html: '<div class="myIframe">' + '<iframe src="/tv-temanggung">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function pelayanan() {
+            Swal.fire({
+                title: '<h2>Pelayanan Publik</h2>',
+                html: '<div class="container col-lg-12"><div class="row title center"><h4>Berita Temanggung</h4></div><div class="list-group"><a href="https://mediacenter.temanggungkab.go.id/" target="_blank" class="list-group-item"><img src="https://mediacenter.temanggungkab.go.id/asset/logo/Untitled-6.png" alt="mediacenter" style="width:100%;max-width:250px;" /></a><a href="http://hebat.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;HIMPUNAN BERITA TEMANGGUNG (HEBAT)<span></div></div></a><div class="row title center"><h4>Temanggung TV</h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(tv())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://yt3.ggpht.com/a/AGF-l79iZIy7KdM7O7JRJxVF4EJ-7GzQXaOHiAwA-A=s288-c-k-c0xffffffff-no-rj-mo" alt="mediacenter" style="width:100%;max-width:50px;" /><span style="padding-right: 130px;">&nbsp;TEMANGGUNG TV <span></div></div></a><div class="row title center"><h4>Data Temanggung</h4></div><div class="list-group"><a href="http://gandem.temanggungkab.go.id/fo/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;ONE DATA TEMANGGUNG<span></div></div></a><div class="row title center"><h4>Layanan Kependudukan</h4></div><div class="list-group"><a href="http://dindukcapil.temanggungkab.go.id/pelayanan/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;Dinas Kependudukan dan Pencatatan Sipil<span></div></div></a><div class="row title center"><h4>Cek Pajak Bumi dan Bangunan</h4></div><div class="list-group"><a href="https://mapatda.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 90px;">&nbsp;BPPKAD TEMANGGUNG<span></div></div></a></div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        var page = 1;
+
+        function kurang() {
+            page--;
+            data_gallery(page);
+        }
+
+        function tambah() {
+            page++;
+            data_gallery(page);
+        }
+
+        function data_gallery($id) {
+            var load = document.getElementById('loader');
+
+            var id = $id;
+            var _token = $('input[name="_token"]').val();
+
+            $.ajax({
+                url: "{{ route('gallery.fetch') }}",
+                method: "POST",
+                data: {
+                    _token: _token,
+                    id: id
+                },
+                success: function(data) {
+
+                    var data = JSON.parse(data);
+                    console.log(data);
+
+                    var myImages = data.result.map(function(item) {
+                        return "<a target='_blank' href='http://temanggung.mcity.id/files/gallery/" + item.gallery_photo + "'><div class='gallery-item'><div class='content'><img src='http://temanggung.mcity.id/files/gallery/" + item.gallery_photo + "' alt=''><div class='desc'>Pengunggah : " + item.name + "</div></div></div></a>";
+                    }).join('');
+
+                    Swal.fire({
+                        title: '<span style="font-size:20px">Galeri<span>',
+                        html: '<div class="button bisa-klik" onclick="kurang()"><</div><div class="button bisa-klik" onclick="tambah()">></div>' + '<div class="row">' + '<div class="gallery" id="gallery">' + myImages + '</div>' + '</div>',
+                        imageAlt: 'Custom image',
+                        width: '1000px'
+                    })
+                }
+            });
+        }
     </script>
 
+    <script>
+        $(document).ready(function() {
+            $('.klik-lain').click(function(e) {
+                // var a = 1;
+                // alert(a);
+                $.ajax({
+                    url: "{{ route('lain.fetch') }}",
+                    method: "GET",
+                    success: function(data) {
+                        // console.log(data);
+                        $('.lain-nya').html(data);
+
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.close-lain').on('click', function() {
+                $(".carousel-lain").css("display", "none");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.klik-lain').on('click', function() {
+                // $('.lain-nya').toggleClass('d-none');
+                $("#carousel-lain").toggle();
+            });
+        });
+        $(document).ready(function() {
+            $('.navbar-toggle').on('click', function() {
+                // $('.lain-nya').toggleClass('d-none');
+                $(".navbar-collapse").toggle();
+            });
+        });
+    </script>
 </body>
 </html>
