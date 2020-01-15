@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -173,9 +175,9 @@ class HomeController extends Controller
         foreach ($string->result->more as $i) {
 
             $output .= '
-                    <div class="col-md-3 col-sm-6 paddingbot klik-menu" onclick="data_menu(' . $i->menu_id . ')">
+                    <div class="col-md-3 col-sm-3 paddingbot klik-menu" onclick="data_menu(' . $i->menu_id . ')">
                     <div class="templatemo_servicebox">
-                        <img src="' . $i->menu_icon_url . '" height="50" width="50">
+                        <img class="gambar_content" src="' . $i->menu_icon_url . '" height="50" width="50">
                         <div class="templatemo_service_title">' . $i->menu_name . '</div>
                     </div>
                  </div>
@@ -240,10 +242,10 @@ class HomeController extends Controller
 
                     $output .= '
                     <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-6 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
+                        <div class="col-md-3 col-sm-3 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
-                                <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="150" width="150">
-                                <div class="templatemo_service_title">' . $i->name . '</div>
+                                <img class="gambar_content" src="http://temanggung.mcity.id/files/content/' . $i->images . '" >
+                                <div class="templatemo_service_title">' . Str::limit($i->name, 20) . '</div>
                                 <p>' . $i->district . '</p>
                             </div>
                         </div>';
@@ -252,10 +254,10 @@ class HomeController extends Controller
                         </div>';
                 } else {
                     $output .= '
-                        <div class="col-md-3 col-sm-3 col-xs-6 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
+                        <div class="col-md-3 col-sm-3 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
-                                <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="150" width="150">
-                                    <div class="templatemo_service_title">' . $i->name . '</div>
+                                <img class="gambar_content" src="http://temanggung.mcity.id/files/content/' . $i->images . '">
+                                    <div class="templatemo_service_title">' . Str::limit($i->name, 20) . '</div>
                                 <p>' . $i->district . '</p>
                             </div>
                         </div>';

@@ -197,8 +197,6 @@
                                     <li><a href="#portfolio">Services</a></li>
                                     <li><a href="#contact">Nearby</a></li>
                                     <li><a href="#about">Weather</a></li>
-                                    {{-- <li><a href="#contact">Contact</a></li>
-                                    <li><a href="http://www.facebook.com/templatemo" class="external">External</a></li> --}}
                                 </ul>
                             </div> <!-- /.menu -->
                         </div> <!-- /.col-md-8 -->
@@ -240,6 +238,27 @@
             </div>
             </li> --}}
         </ul>
+    </div>
+
+    <div class="detail_menu"></div>
+
+    <div class="menu-data"></div>
+
+    <div id="loader" class="loader center d-none"></div>
+
+    <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" style="display: none;">
+
+        @foreach($det->result as $nn)
+        <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
+            @csrf
+
+            <div class="">
+                {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
+                <div class="templatemo_service_title">{{$nn->name}}</div>
+            </div>
+        </div>
+        @endforeach
+
     </div>
 
     <div id="portfolio" class="section-content">
@@ -335,23 +354,6 @@
                 </div> <!-- /.col-md-3 -->
 
             </div> <!-- /.row -->
-            <div class="menu-data"></div>
-            <div id="loader" class="loader center d-none"></div>
-
-            <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" style="display: none;">
-
-                @foreach($det->result as $nn)
-                <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
-                    @csrf
-
-                    <div class="">
-                        {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
-                        <div class="templatemo_service_title">{{$nn->name}}</div>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>
             <div class="title-section text-center">
                 <h2>Layanan Publik</h2>
                 <span></span>
@@ -420,9 +422,6 @@
 
                 @endforeach
             </div>
-            <div class="detail_menu">
-
-            </div>
         </div> <!-- /.container -->
     </div> <!-- /#portfolio -->
 
@@ -432,7 +431,6 @@
         <div class="container">
             <div class="title-section text-center">
                 <h2>Weather</h2>
-                <span></span>
             </div> <!-- /.title-section -->
             <div class="row">
                 <div class="col-md-6">
