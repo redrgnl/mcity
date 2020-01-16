@@ -246,28 +246,30 @@
 
     <div id="loader" class="loader center d-none"></div>
 
-    <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" style="display: none;">
 
-        @foreach($det->result as $nn)
-        <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
-            @csrf
-
-            <div class="">
-                {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
-                <div class="templatemo_service_title">{{$nn->name}}</div>
-            </div>
-        </div>
-        @endforeach
-
-    </div>
 
     <div id="portfolio" class="section-content">
+
         <div class="container">
             <div class="title-section text-center">
                 <h2>Our Services</h2>
                 <span></span>
             </div> <!-- /.title-section -->
             <div class="row">
+                <div class="owl-carousel owl-loaded owl-drag text-center" id="carousel-lain" style="display: none;">
+
+                    @foreach($det->result as $nn)
+                    <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
+                        @csrf
+            
+                        <div class="">
+                            {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
+                            <div class="templatemo_service_title">{{$nn->name}}</div>
+                        </div>
+                    </div>
+                    @endforeach
+            
+                </div>
                 @foreach($menu->result->default as $mn)
                 @if($mn->menu_id != 23 && $mn->menu_id != 3 && $mn->menu_id != 19 )
 
@@ -644,29 +646,43 @@
             setTimeout(remove_load, 280);
 
         }
-
+        
         function data_detail_menu($id) {
-            var load = document.getElementById('loader');
 
-            var id = $id;
-            var _token = $('input[name="_token"]').val();
-            // alert(id);
-
-            $.ajax({
-                url: "{{ route('detailmenu.fetch') }}",
-                method: "POST",
-                data: {
-                    _token: _token,
-                    id: id
-                },
-                success: function(data) {
-                    $('.detail_menu').html(data);
-                    $("#gone").remove();
+            const id_url = $id;
+            // console.log(id_url);
+            Swal.fire({
+                // title: 'Agenda Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/menu-det/'+id_url+'">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
                 }
             });
-
-            setTimeout(remove_load, 280);
         }
+
+        // function data_detail_menu($id) {
+        //     var load = document.getElementById('loader');
+
+        //     var id = $id;
+        //     var _token = $('input[name="_token"]').val();
+        //     // alert(id);
+
+        //     $.ajax({
+        //         url: "{{ route('detailmenu.fetch') }}",
+        //         method: "POST",
+        //         data: {
+        //             _token: _token,
+        //             id: id
+        //         },
+        //         success: function(data) {
+        //             $('.detail_menu').html(data);
+        //             $("#gone").remove();
+        //         }
+        //     });
+
+        //     setTimeout(remove_load, 280);
+        // }
 
         function data_content($id) {
             var load = document.getElementById('loader');

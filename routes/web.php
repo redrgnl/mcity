@@ -16,6 +16,7 @@ Route::get('/agenda/', 'AgendaController@index');
 Route::get('/tv-temanggung/','TvController@index');
 Route::get('/data-agenda', 'AgendaController@event')->name('event.fetch');
 Route::post('/data-harga', 'HomeController@harga_pokok')->name('harga.fetch');
+Route::get('/menu-det/{id}', 'MenuDetController@index');
 
 Route::post('/data-menu', 'HomeController@fetch_menu')->name('menu.fetch');
 Route::post('/detail-data-menu', 'HomeController@fetch_detailMenu')->name('detailmenu.fetch');

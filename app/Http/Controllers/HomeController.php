@@ -244,7 +244,7 @@ class HomeController extends Controller
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
-                                <img class="gambar_content" src="http://temanggung.mcity.id/files/content/' . $i->images . '" >
+                                <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="auto" width="100%">
                                 <div class="templatemo_service_title">' . Str::limit($i->name, 20) . '</div>
                                 <p>' . $i->district . '</p>
                             </div>
@@ -256,7 +256,7 @@ class HomeController extends Controller
                     $output .= '
                         <div class="col-md-3 col-sm-3 col-xs-12 paddingbot klik-lain bisa-klik" onclick="data_content(' . $i->id . ')">
                             <div class="templatemo_servicebox">
-                                <img class="gambar_content" src="http://temanggung.mcity.id/files/content/' . $i->images . '">
+                                <img src="http://temanggung.mcity.id/files/content/' . $i->images . '" height="auto" width="100%">
                                     <div class="templatemo_service_title">' . Str::limit($i->name, 20) . '</div>
                                 <p>' . $i->district . '</p>
                             </div>
