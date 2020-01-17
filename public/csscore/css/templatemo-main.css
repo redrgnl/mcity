@@ -686,6 +686,19 @@ h6 {
     display: block;
 }
 
+.weather-full {
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+.weather-mini {
+    display: none;
+    margin: auto;
+}
+
 /********************************
 IPAD LANDSCAPE (1024x768)
 ********************************/
@@ -696,6 +709,21 @@ IPAD PORTRAIT (768x1024)
     .gambar_content {
         width: 90px;
         height: auto;
+    }
+}
+
+@media (max-width: 720px) {
+    .weather-full {
+        display: none;
+        margin: auto;
+    }
+
+    .weather-mini {
+        display: block;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin: auto;
     }
 }
 

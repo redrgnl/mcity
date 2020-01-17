@@ -218,7 +218,7 @@
     </div> <!-- /#home -->
 
     <div class="flexslider">
-        <ul class="slides">
+        <ul id="focus" class="slides">
             @foreach($slider->result as $sld)
             <li style="height:500px;">
                 <img src="http://temanggung.mcity.id/files/content/{{$sld->images}}" alt="" style="position:relative; top:50%; transform:translateY(-50%)">
@@ -229,14 +229,6 @@
                 </div>
             </li>
             @endforeach
-            {{-- <li>
-                <img src="{{ asset('csscore/images/banner02.jpg') }}" alt="">
-            <div class="flex-caption">
-                <h2>Responsive Mobile</h2>
-                <span></span>
-                <p>Ea, similique, odit id consectetur est beatae quia dicta officiis ipsam itaque in<br>facilis aliquid quas officia voluptatem repellendus repellat!</p>
-            </div>
-            </li> --}}
         </ul>
     </div>
 
@@ -261,14 +253,14 @@
                     @foreach($det->result as $nn)
                     <div class="col-md-12 bisa-klik box " onclick="data_detail_menu({{ $nn->id }})">
                         @csrf
-            
+
                         <div class="">
                             {{-- <img src="{{$mn->menu_icon_url}}" height="50" width="50"> --}}
                             <div class="templatemo_service_title">{{$nn->name}}</div>
                         </div>
                     </div>
                     @endforeach
-            
+
                 </div>
                 @foreach($menu->result->default as $mn)
                 @if($mn->menu_id != 23 && $mn->menu_id != 3 && $mn->menu_id != 19 )
@@ -433,11 +425,18 @@
         <div class="container">
             <div class="title-section text-center">
                 <h2>Weather</h2>
+                <span></span>
             </div> <!-- /.title-section -->
             <div class="row">
-                <div class="col-md-6">
+                <div class="weather-full">
+                    <div id="openweathermap-widget-11"></div>
+                </div>
+                <div class="weather-mini">
+                    <div id="openweathermap-widget-12"></div>
+                </div>
+                <!-- <div class="col-md-6">
                     <img src="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png" height="auto" width="100%">
-                </div> <!-- /.col-md-3 -->
+                </div> 
                 <div class="col-md-5 our-skills  text-center">
                     <h4 class="widget-title">Status Cuaca Temanggung</h4>
 
@@ -457,7 +456,7 @@
                         <i class="fa fa-stack-overflow" style="font-size: 20px"></i>&ensp;
                         <span class="min-temperature"> <?php echo $wth->wind->speed; ?> km/h</span>
                     </div>
-                </div> <!-- /.col-md-3 -->
+                </div> -->
             </div> <!-- /.row -->
             {{-- <div class="row">
                 <div class="our-team">
@@ -567,6 +566,47 @@
     <script src="{{ asset('csscore/js/plugins.js') }}"></script>
     <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
     <script src="{{ asset('csscore/js/custom.js') }}"></script>
+    <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+
+    <script>
+        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+        window.myWidgetParam.push({
+            id: 12,
+            cityid: '1636884',
+            appid: '62a5858da8e76fc807946419cbaf2867',
+            units: 'metric',
+            containerid: 'openweathermap-widget-12',
+        });
+        (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.charset = "utf-8";
+            script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(script, s);
+        })();
+    </script>
+
+    <!--cuaca script-->
+    <script>
+        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+        window.myWidgetParam.push({
+            id: 11,
+            cityid: '1636884',
+            appid: '62a5858da8e76fc807946419cbaf2867',
+            units: 'metric',
+            containerid: 'openweathermap-widget-11',
+        });
+        (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.charset = "utf-8";
+            script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(script, s);
+        })();
+    </script>
+
     <script type="text/javascript">
         function initialize() {
             //   var mapOptions = {
@@ -626,6 +666,11 @@
 
             var id = $id;
             var _token = $('input[name="_token"]').val();
+            var $this = $(this);
+
+            $('html, body').animate({
+                scrollTop: $('#focus').offset().top + 200
+            }, 700);
             // alert(id);
 
             $.ajax({
@@ -638,22 +683,20 @@
                 success: function(data) {
                     // console.log(data);
                     $('.menu-data').html(data);
-
                 }
             });
-
             load.classList.remove('d-none');
             setTimeout(remove_load, 280);
 
         }
-        
+
         function data_detail_menu($id) {
 
             const id_url = $id;
             // console.log(id_url);
             Swal.fire({
                 // title: 'Agenda Temanggung',
-                html: '<div class="myIframe">' + '<iframe src="/menu-det/'+id_url+'">' + '</iframe>' + '</div>',
+                html: '<div class="myIframe">' + '<iframe src="/menu-det/' + id_url + '">' + '</iframe>' + '</div>',
                 width: '1000px',
                 customClass: {
                     html: 'swal-text',
