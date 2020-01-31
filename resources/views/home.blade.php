@@ -298,10 +298,8 @@
                         </div> <!-- /.overlay -->
                     </div> <!-- /.portfolio-thumb -->
                 </div> <!-- /.col-md-3 -->
-</div>
-<div class="row">
-
-
+            </div>
+            <div class="row">
                 @endif{{-- pelayanan publik --}}
                 @if($mn->menu_id == 3)
 
@@ -337,21 +335,6 @@
                 </div> <!-- /.col-md-3 -->
                 @endif
                 @endforeach
-
-<!--                 <div class="col-md-3 col-sm-6 col-xs-6 klik-lain">
-                    @csrf
-
-                    <div class="portfolio-thumb">
-                        <img src="{{asset('images/temanggung/lainnya.png')}}" alt="Portfolio Item 1" height="50" width="50">
-                        <div class="overlay">
-                            <div class="inner">
-                                <h4>Lainnya</h4>
-                                {{-- <span>Design</span> --}}
-                            </div>
-                        </div> 
-                    </div> 
-                </div>-->
-
             </div> <!-- /.row -->
             <div class="title-section text-center">
                 <h2>Layanan Publik</h2>
@@ -439,29 +422,6 @@
                 <div class="weather-mini">
                     <div id="openweathermap-widget-12"></div>
                 </div>
-                <!-- <div class="col-md-6">
-                    <img src="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png" height="auto" width="100%">
-                </div> 
-                <div class="col-md-5 our-skills  text-center">
-                    <h4 class="widget-title">Status Cuaca Temanggung</h4>
-
-                    <h5>Prakiraan Cuaca Temanggung - <span style="font-weight: bold"><?php echo date("jS F, Y", $currenttime); ?></span></h5>
-                    <div class="clear"></div>
-                    <div class="templatemo_address_title" style="font-size: 150%; margin-bottom: 10px">
-                        <img src="http://openweathermap.org/img/w/<?php echo $wth->weather[0]->icon; ?>.png" class="weather-icon" style="width: 12%"><?php echo ucwords($wth->weather[0]->description); ?>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="weather-forecast">
-                        <i class="fa fa-fire" style="font-size: 20px; color: orangered"></i>&ensp;
-                        <span class="min-temperature"> <?php echo $wth->main->temp_min; ?>°C - <?php echo $wth->main->temp_max; ?>°C</span>
-                        &ensp;&ensp;
-                        <i class="fa fa-tint" style="font-size: 20px; color: deepskyblue"></i>&ensp;
-                        <span class="min-temperature"> <?php echo $wth->main->humidity; ?>%</span>
-                        &ensp;&ensp;
-                        <i class="fa fa-stack-overflow" style="font-size: 20px"></i>&ensp;
-                        <span class="min-temperature"> <?php echo $wth->wind->speed; ?> km/h</span>
-                    </div>
-                </div> -->
             </div> <!-- /.row -->
             {{-- <div class="row">
                 <div class="our-team">
@@ -825,6 +785,7 @@
                 }
             });
         }
+
         function santunan() {
             Swal.fire({
                 title: 'Santunan Warga',
@@ -835,6 +796,7 @@
                 }
             });
         }
+
         function ppid() {
             Swal.fire({
                 title: 'PPID',
@@ -845,6 +807,7 @@
                 }
             });
         }
+
         function hukum() {
             Swal.fire({
                 title: 'Produk Hukum',
@@ -855,6 +818,78 @@
                 }
             });
         }
+
+        function statistik() {
+            Swal.fire({
+                title: 'Data Statistik',
+                html: '<a href="#" class="list-group-item" onclick=(Ipm())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://e-statistik.temanggungkab.go.id/assets/upload_files/file_upload/ipm_2.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;Indeks Pembangunan Manusia (IPM)<span></div></div></a><br><a href="#" class="list-group-item" onclick=(Inflasi())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://e-statistik.temanggungkab.go.id/assets/upload_files/file_upload/1.ipm.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;Inflasi<span></div></div></a><br><a href="#" class="list-group-item" onclick=(Pe())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://e-statistik.temanggungkab.go.id/assets/upload_files/file_upload/pe.jpg" alt="mediacenter" style="width:100%;max-width:50px;" /><span style="padding-right: 80px;">&nbsp;Pertumbuhan Ekonomi<span></div></div></a><br><a href="#" class="list-group-item" onclick=(Ntp())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://e-statistik.temanggungkab.go.id/assets/upload_files/file_upload/ntp.jpg" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;NTP Umum<span></div></div></a><br><a href="#" class="list-group-item" onclick=(Ntpsub())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://e-statistik.temanggungkab.go.id/assets/upload_files/file_upload/pe1.jpg" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;NTP Subsektor<span></div></div></a>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function Ipm() {
+            Swal.fire({
+                title: 'Indeks Pembangunan Manusia (IPM)',
+                text: 'Kabupaten Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/ipm">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function Inflasi() {
+            Swal.fire({
+                title: 'Inflasi',
+                text: 'Kabupaten Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/inflasi">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function Pe() {
+            Swal.fire({
+                title: 'Pertumbuhan Ekonomi',
+                text: 'Kabupaten Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/pe">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function Ntp() {
+            Swal.fire({
+                title: 'Nilai Tukar Petani (NTP)',
+                text: 'Kabupaten Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/ntp">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
+        function Ntpsub() {
+            Swal.fire({
+                title: 'Nilai Tukar Petani (NTP) Subsektor',
+                text: 'Kabupaten Temanggung',
+                html: '<div class="myIframe">' + '<iframe src="/ntpsub">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+
         function pelayanan() {
             Swal.fire({
                 title: '<h2>Pelayanan Publik</h2>',
@@ -900,12 +935,22 @@
                         return "<a target='_blank' href='http://temanggung.mcity.id/files/gallery/" + item.gallery_photo + "'><div class='gallery-item'><div class='content'><img src='http://temanggung.mcity.id/files/gallery/" + item.gallery_photo + "' alt=''><div class='desc'>Pengunggah : " + item.name + "</div></div></div></a>";
                     }).join('');
 
-                    Swal.fire({
-                        title: '<span style="font-size:20px">Galeri<span>',
-                        html: '<div class="button bisa-klik" onclick="kurang()"><</div><div class="button bisa-klik" onclick="tambah()">></div>' + '<div class="row">' + '<div class="gallery" id="gallery">' + myImages + '</div>' + '</div>',
-                        imageAlt: 'Custom image',
-                        width: '1000px'
-                    })
+                    if (data.result.length === 0) {
+                        Swal.fire({
+                            title: '<span style="font-size:20px">Galeri<span>',
+                            text: 'Galeri Kosong',
+                            imageAlt: 'Custom image',
+                            width: '1000px'
+                        })
+                    } else {
+                        Swal.fire({
+                            title: '<span style="font-size:20px">Galeri<span>',
+                            html: '<div class="button bisa-klik" onclick="kurang()"><</div><div class="button bisa-klik" onclick="tambah()">></div>' + '<div class="row">' + '<div class="gallery" id="gallery">' + myImages + '</div>' + '</div>',
+                            imageAlt: 'Custom image',
+                            width: '1000px'
+                        })
+                    }
+
                 }
             });
         }

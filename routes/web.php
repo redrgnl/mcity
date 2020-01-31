@@ -16,8 +16,14 @@ Route::get('/produk-hukum/', 'HukumController@index');
 Route::get('/santunan-warga/', 'SantunanController@index');
 Route::get('/ppid/', 'PPIDController@index');
 
+Route::get('/ipm', 'IpmController@index');
+Route::get('/inflasi', 'InflasiController@index');
+Route::get('/pe', 'PeController@index');
+Route::get('/ntp', 'NtpController@index');
+Route::get('/ntpsub', 'NtpsubController@index');
+
 Route::get('/agenda/', 'AgendaController@index');
-Route::get('/tv-temanggung/','TvController@index');
+Route::get('/tv-temanggung/', 'TvController@index');
 Route::get('/data-agenda', 'AgendaController@event')->name('event.fetch');
 Route::post('/data-harga', 'HomeController@harga_pokok')->name('harga.fetch');
 Route::get('/menu-det/{id}', 'MenuDetController@index');
