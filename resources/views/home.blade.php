@@ -164,8 +164,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="left-header">
-                                <span><i class="fa fa-phone"></i>080 080 0990</span>
-                                <span><i class="fa fa-envelope"></i>temanggung@m_city.com</span>
+                                <span><i class="fa fa-phone"></i>(0293) 496 1389</span>
+                                <span><i class="fa fa-envelope"></i>kominfo@temanggungkab.go.id</span>
                             </div> <!-- /.left-header -->
                         </div> <!-- /.col-md-6 -->
                         <div class="col-md-6 col-sm-6">
@@ -553,7 +553,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <p>Copyright &copy; 2084 Temanggung Smart City</p>
+                    <p>Copyright &copy; 2020 Temanggung Smart City</p>
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="go-top">
@@ -825,11 +825,40 @@
                 }
             });
         }
-
+        function santunan() {
+            Swal.fire({
+                title: 'Santunan Warga',
+                html: '<div class="myIframe">' + '<iframe src="/santunan-warga">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+        function ppid() {
+            Swal.fire({
+                title: 'PPID',
+                html: '<div class="myIframe">' + '<iframe src="/ppid">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
+        function hukum() {
+            Swal.fire({
+                title: 'Produk Hukum',
+                html: '<div class="myIframe">' + '<iframe src="/produk-hukum">' + '</iframe>' + '</div>',
+                width: '1000px',
+                customClass: {
+                    html: 'swal-text',
+                }
+            });
+        }
         function pelayanan() {
             Swal.fire({
                 title: '<h2>Pelayanan Publik</h2>',
-                html: '<div class="container col-lg-12"><div class="row title center"><h4>Berita Temanggung</h4></div><div class="list-group"><a href="https://mediacenter.temanggungkab.go.id/" target="_blank" class="list-group-item"><img src="https://mediacenter.temanggungkab.go.id/asset/logo/Untitled-6.png" alt="mediacenter" style="width:100%;max-width:250px;" /></a><a href="http://hebat.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;HIMPUNAN BERITA TEMANGGUNG (HEBAT)<span></div></div></a><div class="row title center"><h4>Temanggung TV</h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(tv())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://yt3.ggpht.com/a/AGF-l79iZIy7KdM7O7JRJxVF4EJ-7GzQXaOHiAwA-A=s288-c-k-c0xffffffff-no-rj-mo" alt="mediacenter" style="width:100%;max-width:50px;" /><span style="padding-right: 130px;">&nbsp;TEMANGGUNG TV <span></div></div></a><div class="row title center"><h4>Data Temanggung</h4></div><div class="list-group"><a href="http://gandem.temanggungkab.go.id/fo/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;ONE DATA TEMANGGUNG<span></div></div></a><div class="row title center"><h4>Layanan Kependudukan</h4></div><div class="list-group"><a href="http://dindukcapil.temanggungkab.go.id/pelayanan/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;Dinas Kependudukan dan Pencatatan Sipil<span></div></div></a><div class="row title center"><h4>Cek Pajak Bumi dan Bangunan</h4></div><div class="list-group"><a href="https://mapatda.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 90px;">&nbsp;BPPKAD TEMANGGUNG<span></div></div></a><div class="row title center"><h4>PPID </h4></div><div class="list-group"><a href="https://mapatda.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 90px;">&nbsp;BPPKAD TEMANGGUNG<span></div></div></a></div>',
+                html: '<div class="container col-lg-12"><div class="row title center"><h4>Berita Temanggung</h4></div><div class="list-group"><a href="https://mediacenter.temanggungkab.go.id/" target="_blank" class="list-group-item"><img src="https://mediacenter.temanggungkab.go.id/asset/logo/Untitled-6.png" alt="mediacenter" style="width:100%;max-width:250px;" /></a><a href="http://hebat.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;HIMPUNAN BERITA TEMANGGUNG (HEBAT)<span></div></div></a><div class="row title center"><h4>Temanggung TV</h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(tv())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="https://yt3.ggpht.com/a/AGF-l79iZIy7KdM7O7JRJxVF4EJ-7GzQXaOHiAwA-A=s288-c-k-c0xffffffff-no-rj-mo" alt="mediacenter" style="width:100%;max-width:50px;" /><span style="padding-right: 130px;">&nbsp;TEMANGGUNG TV <span></div></div></a><div class="row title center"><h4>Data Temanggung</h4></div><div class="list-group"><a href="http://gandem.temanggungkab.go.id/fo/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 80px;">&nbsp;ONE DATA TEMANGGUNG<span></div></div></a><div class="row title center"><h4>Layanan Kependudukan</h4></div><div class="list-group"><a href="http://dindukcapil.temanggungkab.go.id/pelayanan/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span>&nbsp;Dinas Kependudukan dan Pencatatan Sipil<span></div></div></a><div class="row title center"><h4>Cek Pajak Bumi dan Bangunan</h4></div><div class="list-group"><a href="https://mapatda.temanggungkab.go.id/" class="list-group-item" target="_blank"><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 90px;">&nbsp;BPPKAD TEMANGGUNG<span></div></div></a><div class="row title center"><h4>PPID </h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(ppid())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 140px;">&nbsp;PPID Temanggung<span></div></div></a><div class="row title center"><h4>Santunan </h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(santunan())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 140px;">&nbsp;Santunan Temanggung<span></div></div></a><div class="row title center"><h4>Statistik </h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(statistik())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 140px;">&nbsp;Statistik Temanggung<span></div></div></a><div class="row title center"><h4>Produk Hukum</h4></div><div class="list-group"><a href="#" class="list-group-item" onclick=(hukum())><div class="row"><div class="col-lg-4 col-xs-1"></div><div class="col-lg-4 col-xs-10"><img src="http://hebat.temanggungkab.go.id/assets/logo_kabupaten_temanggung-7d33861835241016b515cdb6643492051fc70d5bf8169be38cd35e04dc6378ad.png" alt="mediacenter" style="width:100%;max-width:40px;" /><span style="padding-right: 140px;">&nbsp;Produk Hukum<span></div></div></a></div>',
                 width: '1000px',
                 customClass: {
                     html: 'swal-text',

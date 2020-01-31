@@ -13,6 +13,9 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/produk-hukum/', 'HukumController@index');
+Route::get('/santunan-warga/', 'SantunanController@index');
+Route::get('/ppid/', 'PPIDController@index');
+
 Route::get('/agenda/', 'AgendaController@index');
 Route::get('/tv-temanggung/','TvController@index');
 Route::get('/data-agenda', 'AgendaController@event')->name('event.fetch');
