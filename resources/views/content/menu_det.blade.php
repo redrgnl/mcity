@@ -2,7 +2,8 @@
 <?php
 //index.php
 
-
+// $test = ["haha", "hehe"];
+file_put_contents( 'public' . '../../myfile.json', $json_data);
 
 
 ?>
@@ -23,6 +24,8 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
   <!-- CSS Bootstrap & Custom -->
+<!--     <link rel="stylesheet" href="{{ asset('myfile.json') }}">
+ -->
   <link href="{{ asset('csscore/bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="{{ asset('csscore/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('csscore/css/templatemo-misc.css') }}">
@@ -158,24 +161,99 @@
  </head>
  <body>
   <br />
+
   @csrf
-  {{-- <h2 align="center"><a href="#">Hasil Pencarian</a></h2> --}}
   <br />
   <div class="id_url" data-menu="{{request()->route('id')}}"></div>
   <div class="container">
+  <div align="center">
+      <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
+  </div>
+  <ul class="list-group" id="result"></ul>
+  <br>
    <div class="menu-det"></div>
   </div>
  </body>
- 
+<!--          $.getJSON('http://temanggung.mcity.id/index.php?mod=m.services&sub=content&act=view&typ=html&take=content_multicat&lang=id&callback=?',
+         function(data){
+          $.each(data, function(key, value){
+            if (value.result[4].name.search(expression) != -1 )
+            {
+              $('#result').append('<li class="list-group-item">'+value.result[4].name+'</li>')
+            }
+          })
+        }) -->
  <script src="{{ asset('csscore/bootstrap/js/bootstrap.min.js') }}"></script>
  <script src="{{ asset('csscore/js/plugins.js') }}"></script>
  <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
  <script src="{{ asset('csscore/js/custom.js') }}"></script>
  <script>
+   $(document).ready(function(){
+
+    // file_put_contents('public/myfile.json', $json_data);
+
+    // localStorage.setItem('myfile')
+
+      $('#search').keyup(function(){
+
+        var datany = $(this).val();
+
+        if(datany != ''){
+
+            $('#result').html('');
+
+            var field =  $('#search').val();
+            var expression = new RegExp(field, "i");
+            var id_place = $('.id_url');
+              $.getJSON('{{ asset("myfile.json") }}',
+                     function(data){
+                      $.each(data, function(key, value){
+
+                        $.each(value, function(k, v){
+                          var count = $('.count').length;
+                            if (v.name.search(expression) != -1 ) 
+                            {
+                              $('#result').append('<li class="list-group-item bisa-klik count" onclick="data_content('+v.id+')"><img src="http://temanggung.mcity.id/files/content/'+v.images+'" height="40" width="40" class="img-thumbnail"/>'+v.name+'</li>')
+                              // console.log(count);
+                            } 
+
+                            // if (count > 0){
+                            //    $('#result').append('<li class="list-group-item bisa-klik count">'+'Tempat Tidak Di Temukan''</li>')
+                            // }
+                        })
+                      })
+                    }) 
+
+        }else{
+            $('#result').html('');
+
+
+          }
+
+      })
+   });
+ </script>
+ <script>
     $(document).ready(function(){
 
         var id = $('.id_url').data('menu');
         var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+            url: "{{ route('test.fetch') }}",
+            method: "POST",
+            data: {
+                    _token: _token,
+                    id: id
+                },
+            success:function(data){
+                // console.log(data);
+                // $('.menu-det').html(data);
+    // localStorage.setItem('myfile')
+
+            }
+
+        });
 
         $.ajax({
             url: "{{ route('detailmenu.fetch') }}",
@@ -185,7 +263,7 @@
                     id: id
                 },
             success:function(data){
-                // console.log(id);
+                // console.log(data);
                 $('.menu-det').html(data);
             }
 

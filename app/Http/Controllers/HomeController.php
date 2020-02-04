@@ -206,7 +206,25 @@ class HomeController extends Controller
         curl_close($ch);
         return json_decode($response);
     }
+    public function test(Request $request)
+    {
+        $googleApiUrl = "http://temanggung.mcity.id/index.php?mod=m.services&sub=content&act=view&typ=html&take=content_multicat&lang=id";
+// &cat_id=" . $request->get('id') . "
+        $ch = curl_init();
 
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_VERBOSE, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+        
+        
+        return $response;
+    }
     public function fetch_detailMenu(Request $request)
     {
         $googleApiUrl = "http://temanggung.mcity.id/index.php?mod=m.services&sub=content&act=view&typ=html&take=content_multicat&lang=id&cat_id=" . $request->get('id') . "";

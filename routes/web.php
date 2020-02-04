@@ -33,3 +33,4 @@ Route::post('/detail-data-menu', 'HomeController@fetch_detailMenu')->name('detai
 Route::post('/data-content', 'HomeController@fetch_content')->name('content.fetch');
 Route::post('/data-gallery', 'HomeController@fetch_gallery')->name('gallery.fetch');
 Route::get('/data-lain', 'HomeController@fetch_more')->name('lain.fetch');
+Route::post('/test', 'HomeController@test')->name('test.fetch');
