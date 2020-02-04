@@ -1,7 +1,7 @@
 <?php
 //index.php
 
-$test = ["haha", "hehe"];
+// $test = ["haha", "hehe"];
 file_put_contents( 'public' . '../../myfile.json', $json_data);
 
 
@@ -241,13 +241,13 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
         </ul>
     </div>
 
-    <div class="detail_menu"></div>
+    <div  class="detail_menu "></div>
 
-    <div class="menu-data"></div>
+    <div id="menunya" class="menu-data d-none"></div>
         <div class="row d-none" id="search_input">
           <div class="col-md-3 col-sm-3" >
         </div>
-          <div class="col-md-6 col-sm-6" >
+          <div class="col-md-6 col-sm-6 " >
               <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
           <ul class="list-group" id="result"></ul>
           </div>
@@ -717,6 +717,8 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
                 }
             });
             load.classList.remove('d-none');
+             $('#menunya').toggleClass('d-none');
+
              $('#search_input').toggleClass('d-none');
             setTimeout(remove_load, 280);
         }
