@@ -1,3 +1,11 @@
+<?php
+//index.php
+
+$test = ["haha", "hehe"];
+file_put_contents( 'public' . '../../myfile.json', $json_data);
+
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
 <![endif]-->
@@ -236,7 +244,15 @@
     <div class="detail_menu"></div>
 
     <div class="menu-data"></div>
-
+        <div class="row d-none" id="search_input">
+          <div class="col-md-3 col-sm-3" >
+        </div>
+          <div class="col-md-6 col-sm-6" >
+              <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
+          <ul class="list-group" id="result"></ul>
+          </div>
+          <br>
+        </div>
     <div id="loader" class="loader center d-none"></div>
 
 
@@ -532,7 +548,57 @@
     <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
     <script src="{{ asset('csscore/js/custom.js') }}"></script>
     <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+<!-- search API menu  -->
 
+<script>
+       $(document).ready(function(){
+
+    // file_put_contents('public/myfile.json', $json_data);
+
+    // localStorage.setItem('myfile')
+
+      $('#search').keyup(function(){
+
+        var datany = $(this).val();
+
+        if(datany != ''){
+
+            $('#result').html('');
+
+            var field =  $('#search').val();
+            var expression = new RegExp(field, "i");
+            var id_place = $('.id_url');
+              $.getJSON('{{ asset("myfile.json") }}',
+                     function(data){
+                      $.each(data, function(key, value){
+
+                        $.each(value, function(k, v){
+                          var count = $('.count').length;
+                            if (v.name.search(expression) != -1 || v.category.search(expression) != -1 )
+                            {
+                              $('#result').append('<li class="list-group-item bisa-klik count" onclick="data_content('+v.id+')"><img src="http://temanggung.mcity.id/files/content/'+v.images+'" height="40" width="40" class="img-thumbnail"/>'+v.name+'</li>')
+                              // console.log(count);
+                            } 
+
+                            // if (count > 0){
+                            //    $('#result').append('<li class="list-group-item bisa-klik count">'+'Tempat Tidak Di Temukan''</li>')
+                            // }
+                        })
+                      })
+                    }) 
+
+        }else{
+            $('#result').html('');
+
+
+          }
+
+      })
+   });
+ </script>
+</script>
+
+<!-- end search -->
     <script>
         window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
         window.myWidgetParam.push({
@@ -651,8 +717,8 @@
                 }
             });
             load.classList.remove('d-none');
+             $('#search_input').toggleClass('d-none');
             setTimeout(remove_load, 280);
-
         }
 
         function data_detail_menu($id) {

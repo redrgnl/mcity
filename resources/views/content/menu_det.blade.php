@@ -166,28 +166,20 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
   <br />
   <div class="id_url" data-menu="{{request()->route('id')}}"></div>
   <div class="container">
-  <div align="center">
+<!--   <div align="center">
       <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
   </div>
   <ul class="list-group" id="result"></ul>
-  <br>
+  <br> -->
    <div class="menu-det"></div>
   </div>
  </body>
-<!--          $.getJSON('http://temanggung.mcity.id/index.php?mod=m.services&sub=content&act=view&typ=html&take=content_multicat&lang=id&callback=?',
-         function(data){
-          $.each(data, function(key, value){
-            if (value.result[4].name.search(expression) != -1 )
-            {
-              $('#result').append('<li class="list-group-item">'+value.result[4].name+'</li>')
-            }
-          })
-        }) -->
+
  <script src="{{ asset('csscore/bootstrap/js/bootstrap.min.js') }}"></script>
  <script src="{{ asset('csscore/js/plugins.js') }}"></script>
  <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
  <script src="{{ asset('csscore/js/custom.js') }}"></script>
- <script>
+<!--  <script>
    $(document).ready(function(){
 
     // file_put_contents('public/myfile.json', $json_data);
@@ -232,7 +224,7 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
 
       })
    });
- </script>
+ </script> -->
  <script>
     $(document).ready(function(){
 

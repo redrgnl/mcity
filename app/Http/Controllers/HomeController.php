@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $data['json_data'] = $this->test();
         $data['wth'] = $this->weather();
         $data['navbar'] = $this->navbar();
         $data['menu'] = $this->menu();
@@ -206,10 +207,10 @@ class HomeController extends Controller
         curl_close($ch);
         return json_decode($response);
     }
-    public function test(Request $request)
+    public function test()
     {
         $googleApiUrl = "http://temanggung.mcity.id/index.php?mod=m.services&sub=content&act=view&typ=html&take=content_multicat&lang=id";
-// &cat_id=" . $request->get('id') . "
+
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -221,8 +222,6 @@ class HomeController extends Controller
         $response = curl_exec($ch);
 
         curl_close($ch);
-        
-        
         return $response;
     }
     public function fetch_detailMenu(Request $request)
