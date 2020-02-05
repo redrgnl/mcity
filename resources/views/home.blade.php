@@ -243,7 +243,7 @@ file_put_contents('public' . '../../myfile.json', $json_data);
 
     <div class="detail_menu "></div>
 
-    <div id="menunya" class="menu-data d-none"></div>
+    <div id="menunya" class="menu-data "></div>
     <div class="row d-none" id="search_input">
         <div class="col-md-3 col-sm-3">
         </div>
@@ -725,9 +725,9 @@ file_put_contents('public' . '../../myfile.json', $json_data);
                 }
             });
             load.classList.remove('d-none');
-            $('#menunya').toggleClass('d-none');
+            // $('#menunya').toggleClass('d-none');
 
-            $('#search_input').toggleClass('d-none');
+            $('#search_input').removeClass('d-none');
             setTimeout(remove_load, 280);
         }
 
