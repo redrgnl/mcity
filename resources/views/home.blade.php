@@ -2,7 +2,7 @@
 //index.php
 
 // $test = ["haha", "hehe"];
-file_put_contents( 'public' . '../../myfile.json', $json_data);
+file_put_contents('public' . '../../myfile.json', $json_data);
 
 
 ?>
@@ -163,7 +163,7 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
     </style>
 </head>
 
-<body>
+<body id="temanggung">
 
     <div id="home">
         <div class="site-header">
@@ -241,18 +241,20 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
         </ul>
     </div>
 
-    <div  class="detail_menu "></div>
+    <div class="detail_menu "></div>
 
     <div id="menunya" class="menu-data d-none"></div>
-        <div class="row d-none" id="search_input">
-          <div class="col-md-3 col-sm-3" >
+    <div class="row d-none" id="search_input">
+        <div class="col-md-3 col-sm-3">
         </div>
-          <div class="col-md-6 col-sm-6 " >
-              <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
-          <ul class="list-group" id="result"></ul>
-          </div>
-          <br>
+        <div class="col-md-6 col-sm-6 ">
+            <input type="text" name="search" id="search" placeholder="Cari Tempat" class="form-control">
+            <div id="remove">
+                <ul class="list-group max-height" id="result"></ul>
+            </div>
         </div>
+        <br>
+    </div>
     <div id="loader" class="loader center d-none"></div>
 
 
@@ -548,57 +550,63 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
     <script src="{{ asset('csscore/js/jquery.lightbox.js') }}"></script>
     <script src="{{ asset('csscore/js/custom.js') }}"></script>
     <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
-<!-- search API menu  -->
+    <!-- search API menu  -->
 
-<script>
-       $(document).ready(function(){
+    <script>
+        $(document).ready(function() {
 
-    // file_put_contents('public/myfile.json', $json_data);
+            // file_put_contents('public/myfile.json', $json_data);
 
-    // localStorage.setItem('myfile')
+            // localStorage.setItem('myfile')
 
-      $('#search').keyup(function(){
+            $('#search').keyup(function() {
 
-        var datany = $(this).val();
+                var datany = $(this).val();
 
-        if(datany != ''){
+                if (datany != '') {
 
-            $('#result').html('');
+                    $('#result').html('');
 
-            var field =  $('#search').val();
-            var expression = new RegExp(field, "i");
-            var id_place = $('.id_url');
-              $.getJSON('{{ asset("myfile.json") }}',
-                     function(data){
-                      $.each(data, function(key, value){
+                    var field = $('#search').val();
+                    var expression = new RegExp(field, "i");
+                    var id_place = $('.id_url');
+                    $.getJSON('{{ asset("myfile.json") }}',
+                        function(data) {
+                            $.each(data, function(key, value) {
 
-                        $.each(value, function(k, v){
-                          var count = $('.count').length;
-                            if (v.name.search(expression) != -1 || v.category.search(expression) != -1 )
-                            {
-                              $('#result').append('<li class="list-group-item bisa-klik count" onclick="data_content('+v.id+')"><img src="http://temanggung.mcity.id/files/content/'+v.images+'" height="40" width="40" class="img-thumbnail"/>'+v.name+'</li>')
-                              // console.log(count);
-                            } 
+                                $.each(value, function(k, v) {
+                                    var count = $('.count').length;
+                                    if (v.name.search(expression) != -1 || v.category.search(expression) != -1) {
+                                        $('#result').append('<li class="list-group-item bisa-klik count" onclick="data_content(' + v.id + ')"><img src="http://temanggung.mcity.id/files/content/' + v.images + '" height="40" width="40" class="img-thumbnail"/>' + v.name + '</li>')
+                                        // console.log(count);
+                                    }
 
-                            // if (count > 0){
-                            //    $('#result').append('<li class="list-group-item bisa-klik count">'+'Tempat Tidak Di Temukan''</li>')
-                            // }
+                                    // if (count > 0){
+                                    //    $('#result').append('<li class="list-group-item bisa-klik count">'+'Tempat Tidak Di Temukan''</li>')
+                                    // }
+                                })
+                            })
                         })
-                      })
-                    }) 
 
-        }else{
-            $('#result').html('');
+                } else {
+                    $('#result').html('');
 
 
-          }
+                }
 
-      })
-   });
- </script>
-</script>
+            })
+        });
+    </script>
+    </script>
 
-<!-- end search -->
+    <script>
+        $('#temanggung').click(function() {
+            $('#search').val("");
+            $('#remove ul li').remove();
+        });
+    </script>
+
+    <!-- end search -->
     <script>
         window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
         window.myWidgetParam.push({
@@ -717,9 +725,9 @@ file_put_contents( 'public' . '../../myfile.json', $json_data);
                 }
             });
             load.classList.remove('d-none');
-             $('#menunya').toggleClass('d-none');
+            $('#menunya').toggleClass('d-none');
 
-             $('#search_input').toggleClass('d-none');
+            $('#search_input').toggleClass('d-none');
             setTimeout(remove_load, 280);
         }
 
